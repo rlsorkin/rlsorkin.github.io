@@ -8,4 +8,4 @@ This is a simple demo of JS and bootstrap. Check back for updates.
 
 [Invoke]
 
-[Invoke]: http://missioncritical.link/voker/html
+[Invoke]: http://missioncritical.link/voker.html
