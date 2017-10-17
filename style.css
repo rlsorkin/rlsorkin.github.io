@@ -1,0 +1,48 @@
+#header{
+	text-align: center;
+}
+
+.col-md-3{
+	text-align: center;
+}
+
+#answerBox {
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+}
+
+
+
+#answer1 > img{
+	height:60px;
+	width: 60px;
+	border-radius: 20px;
+}
+
+#answer2 > img{
+	height:60px;
+	width: 60px;
+	border-radius: 20px;
+}
+
+#answer3 > img{
+	height:60px;
+	width: 60px;
+	border-radius: 20px;
+}
+
+#answerDiv {
+	width: 160px;
+	text-align: center;
+}
+
+#spellDescription {
+	height: 160px;
+	line-height: 150px;
+}
+
+#spellDescription p {
+	vertical-align: middle;
+	display:inline-block;
+}

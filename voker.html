@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="change.js"></script>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<div class="container" id="header">
+		<h1>Invoker Training</h1>
+		<p>Test your spell knowledge</p>
+	</div>
+	<div class="col-xs-12" style="height:50px;"></div>
+	
+	<div class="container" id="orbContainer" well>
+		<div class="row align-items-center">
+			<div class="col-md-3">
+				<img src="assets/Quas_icon.png" id="quas" class="img-rounded" onclick="sendOrb(this.id)">
+			</div>
+			<div class="col-md-3">
+				<img src="assets/Wex_icon.png" id="wex" class="img-rounded" onclick="sendOrb(this.id)">
+			</div>
+			<div class="col-md-3">
+				<img src="assets/Exort_icon.png" id="exort" class="img-rounded" onclick="sendOrb(this.id)">
+			</div>
+			<div class="col-md-3">
+				<img src="assets/Invoke_icon.png" id="invoke" class="img-rounded" onclick="evalOrbs()">
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-12" style="height:50px;"></div>
+	<div class="container">
+			<div class="row" id="answerBox">
+				<div class="col-sm-4" id="answer1"><img src="assets/Talent_icon.png" id="tempImg1"></div>
+				<div class="col-sm-4" id="answer2"><img src="assets/Talent_icon.png" id="tempImg2"></div>
+				<div class="col-sm-4" id="answer3"><img src="assets/Talent_icon.png" id="tempImg3"></div>
+			</div>
+	</div>
+	<div class="col-xs-12" style="height:50px;"></div>
+	
+	<div class="container" id="spellResult">
+		
+		<div class="col-md-3">
+				<div class="centerBlock" id="answerDiv">
+				<img src="" id="tempAnswer" />
+			</div>
+		</div>
+		<div class="col-md-9" id="spellDescription">
+			<p></p>
+		</div>
+	</div>
+	<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous">
+	</script>
+	
+</body>
+</html>
