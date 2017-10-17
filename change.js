@@ -55,7 +55,7 @@ var spellDetails = [
 		name: "Forge Spirits",
 		combo: "exort,exort,quas",
 		description: "Friends are better than gold, but both is better than either.",
-		icon: "assets/Forge_Spirits_icon.png",
+		icon: "assets/Forge_Spirit_icon.png",
 	},
 	{
 		name: "Chaos Meteor",
