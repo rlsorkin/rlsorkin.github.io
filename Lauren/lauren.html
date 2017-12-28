@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang=en>
+<head>
+    <meta charset=utf-8>
+    <title>LNK</title>
+    <script src="js/laurenCode.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/laurenStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel="stylesheet" type="text/css">
+    
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="single-page-nav sticky-wrapper" id = "tmBar">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#section1">Link to first section</a></li>
+                        <li><a href="#section2">Link to second section</a></li>
+                        <li><a href="#section3">Link to third section</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div id="pageContainer">
+            <div id="gradient" />
+            <div id="title">
+                <img id="logo" src="img/LNKtitleGraphic.png">
+            </div>
+            <div id="content">
+                <p> <a href="#section1">Games and Whatnot</a></p>
+                <p> <a href="#section2">And</a></p>
+                <p> <a href="#section3">Stuff</a></p>
+            </div>
+        </div>
+        
+        <div id="section1">
+            <section id='feature-area' class="about-section">
+            <div class="container">
+                <div class='row text-center inner'>
+                    <div class="col-sm-4">
+                        <div class="feature-content">
+                            <img src="img/akiraGang.jpg">
+                            <h2 class="feature-content-title white-text">Friends Are Forever</h2>
+                            <p class="feature-content-description">Life etc. How are you must be tired after all and then when yeah.</p>
+                            <a href="#title" class="feature-content-link blue-btn">Click</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="feature-content">
+                            <img src="img/akiraGang.jpg">
+                            <h2 class="feature-content-title white-text">Friends Are Forever</h2>
+                            <p class="feature-content-description">Life etc. How are you must be tired after all and then when yeah.</p>
+                            <a href="#title" class="feature-content-link blue-btn">Click</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="feature-content">
+                            <img src="img/akiraGang.jpg">
+                            <h2 class="feature-content-title white-text">Friends Are Forever</h2>
+                            <p class="feature-content-description">Life etc. How are you must be tired after all and then when yeah.</p>
+                            <a href="#title" class="feature-content-link blue-btn">Click</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+        </div>
+        
+        <div class="para"></div>
+        
+        <div id="section2">
+              <section id="blog-area">
+                    <div class="container">
+                        <div class="row text-center inner">
+                            <div class="col-sm-6">
+                                <div class="blog-content">
+                                    <img src="img/eva2.jpg">
+                                    <h2 class="white-text">First Loves</h2>
+                                    <p>Bleep Bloop and all of that. This is the text that will go here eventually, so this is just temporary text. This text has a limited lifespan. Counting down its days.....</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="blog-content">
+                                    <img src="img/eva2.jpg">
+                                    <h2 class='white-text'>First Loves</h2>
+                                    <p>Bleep Bloop and all of that. This is the text that will go here eventually, so this is just temporary text. This text has a limited lifespan. Counting down its days.....</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+              </section>
+        </div>
+        
+        <div class="para"></div>
+        
+        <div id="section3">
+            <div class="container">
+                <div class="row text-center inner">
+                    <div class="col-sm -12">
+                        <div class="about-content">
+                            <h2 class="white-text">That Feel</h2>
+                            <img src="img/saddboyss.jpg">
+                            <ol>
+                                <li>Yes</li>
+                                <li>No</li>
+                                <li>Maybe so</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="para"></div>
+        
+        <div class="footer">
+            <div class="container">
+                <div id="footer-content" class="foo">
+                    <div class="row text-center inner">
+                        <div class="col-sm-12">
+                            <p>Copyright Nada @</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <script src="js/jquery-3.2.1.js"></script>
+        <script src="js/jquery.scrollUp.min.js"></script>
+        <script src="js/jquery.singlePageNav.min.js"></script>
+        <script src="js/parallax.js-1.5.0/parallax.min.js"></script>
+
+        <script>
+       
+            $(document).ready(function(){
+                $('.navbar').hide()
+            });
+            
+            $('.para').parallax({
+               imageSrc:'img/largewarped.jpg',
+                speed: 0.2
+            });
+            
+            // handle links with @href started with '#' only
+            $(document).on('click', 'a[href^="#"]', function(e) {
+                // target element id
+                var id = $(this).attr('href');
+
+                // target element
+                var $id = $(id);
+                if ($id.length === 0) {
+                    return;
+                }
+
+                // prevent standard hash navigation (avoid blinking in IE)
+                e.preventDefault();
+
+                // top position relative to the document
+                var pos = $id.offset().top;
+
+                // animated top scrolling
+                $('body, html').animate({scrollTop: pos});
+            });
+            
+            $(window).scroll(function() { // when the page is scrolled run this
+                if($(this).scrollTop() != 0) { // if you're NOT at the top
+                    $('.navbar').fadeIn("fast"); // fade in
+                } else { // else
+                    $('.navbar').fadeOut("fast"); // fade out
+                }
+            });
+       
+            $('#content > p').hover(
+                function(){
+                    $(this).prepend('<i class="right"></i>');
+                },
+                function(){$('i').remove();
+                }
+            );
+            
+            $('single-page-nav').singlePageNav({
+                offset: $('.single-page-nav').outerHeight(),
+                speed: 1500,
+                filter: ':not(.external)',
+                updateHash: true
+            });
+            
+            
+       
+            //Gradient anim
+            var colors = new Array(
+                  [255,0,255],
+                  [128,0,128],
+                  [0,128,128],
+                  [192,192,192],
+                  [128,128,128],
+                  [0,0,0]);
+
+                var step = 0;
+                //color table indices for: 
+                // current color left
+                // next color left
+                // current color right
+                // next color right
+                var colorIndices = [0,1,2,3];
+
+                //transition speed
+                var gradientSpeed = 0.002;
+
+                function updateGradient()
+                {
+
+                  if ( $===undefined ) return;
+
+                var c0_0 = colors[colorIndices[0]];
+                var c0_1 = colors[colorIndices[1]];
+                var c1_0 = colors[colorIndices[2]];
+                var c1_1 = colors[colorIndices[3]];
+
+                var istep = 1 - step;
+                var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+                var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+                var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+                var color1 = "rgb("+r1+","+g1+","+b1+")";
+
+                var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+                var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+                var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+                var color2 = "rgb("+r2+","+g2+","+b2+")";
+
+                 $('#gradient').css({
+                   background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+                    background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+
+                  step += gradientSpeed;
+                  if ( step >= 1 )
+                  {
+                    step %= 1;
+                    colorIndices[0] = colorIndices[1];
+                    colorIndices[2] = colorIndices[3];
+
+                    //pick two new target color indices
+                    //do not pick the same as the current one
+                    colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+                    colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+
+                  }
+                }
+
+                setInterval(updateGradient,30);
+            
+            
+            
+        </script>
+    </body>
+</html>
