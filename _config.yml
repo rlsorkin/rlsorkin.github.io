@@ -11,7 +11,7 @@ email: emry.rosnik@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   This mission is not for you.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://www.missioncritical.link" # the base hostname & protocol for your site
 twitter_username: DJTurboDrac
 github_username:  rlsorkin
 
