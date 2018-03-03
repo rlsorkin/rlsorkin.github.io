@@ -1,0 +1,127 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>test</title>
+  <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+  <![endif]-->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</head>
+<body>
+    /*
+    NOTES:
+    I could write a parser so that Lin just has to name the images with just a date, or a date and a bg color to mimic Vincent Giards site.
+    Need to write a "post" object that pulls in the image and constructs the format for the post using the image name or metadata.
+    Need to add a check for end of image feed, could just count number of files in folder and end at that number.
+    Refactor into methods?
+    
+    <h1>HOWLIN <br>COMICS</h1>
+    <h1 id="slogan">'93<br>TO<br>INFINITY</h1>
+    
+    <ul>
+        <li>Link</li>
+        <li>Link</li>
+        <li>Zelda</li>
+        <li>Tingle</li>
+        <li>Impa</li>
+        <li>Impa</li>
+        <li>Ganondorf</li>
+    </ul>
+    
+    <div id="root"></div>
+    
+    <script>
+        $(document).ready(function(){
+            
+            var imageArray = [];
+            var j = 0;
+            var lastImg = "";
+           
+            $.ajax({
+                url: "images",
+                success: function(data){
+                    $(data).find("a:contains(.jpg), a:contains(.png)").each(function(){
+                        // will loop through 
+                        images = $(this).attr("href");
+                        imageArray.push(images);
+                        //console.log(images);
+                        var img = $('<img class="imageFeed">'); //Equivalent: $(document.createElement('img'))
+                        img.attr('src', images);
+                        img.attr('id', j);
+                        
+                        if(j<=4){
+                            var div = $('<div />', { "class":"imageFrame", id:"container"+j}).appendTo('#root');
+                            img.appendTo('#container'+j);
+                            lastImg = img.attr("id");
+                            j++
+                        }
+                        
+                    });
+                }
+            }).done(function(){
+               console.log(imageArray); 
+            });
+                
+            jQuery(function($){
+                $(document).ajaxStop(function(){
+                    $(window).scroll(function(){
+                        if ($('body').height() <= ($(window).height() + $(window).scrollTop())) {
+                            if(1 == 1){
+                                var img = $('<img class="imageFeed">');
+                                img.attr('src',imageArray[j]);
+                                img.attr('id', j);
+                                console.log('trying to append');
+                                var div = $('<div />', { "class":"imageFrame", id:"container"+j}).appendTo('#root');
+                                img.appendTo('#container'+j);
+                                lastImg = img.attr("id");
+                                console.log(lastImg);
+                                j++
+                                } else {
+                                    j++
+                                }
+                        }
+                    });
+                });
+            });
+            
+            /*
+            $(window).scroll(function() {
+              
+                if ($('body').height() <= ($(window).height() + $(window).scrollTop())) {
+                    var idArray = $("#root").find("img").map(function(){return this.id;}).get();
+                    console.log(idArray);
+                    $.ajax({
+                        url: "images",
+                        success: function(data){
+                            $(data).find("a:contains(.jpg), a:contains(.png)").each(function(){
+                                // will loop through 
+                                images = $(this).attr("href");
+                                var img = $('<img class="imageFeed">'); //Equivalent: $(document.createElement('img'))
+                                img.attr('src', images);
+                                img.attr('id', j);
+                                if(1 == 1){
+                                    console.log('trying to append');
+                                    var div = $('<div />', { "class":"imageFrame", id:"container"+j}).appendTo('#root');
+                                    img.appendTo('#container'+j);
+                                    lastImg = img.attr("id");
+                                    console.log(lastImg);
+                                    j++
+                                } else {
+                                    j++
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+            
+            */
+        });
+        
+    </script>
+</body>
+</html>
