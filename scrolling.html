@@ -12,13 +12,13 @@
 
 </head>
 <body>
-    /*
-    NOTES:
-    I could write a parser so that Lin just has to name the images with just a date, or a date and a bg color to mimic Vincent Giards site.
-    Need to write a "post" object that pulls in the image and constructs the format for the post using the image name or metadata.
-    Need to add a check for end of image feed, could just count number of files in folder and end at that number.
-    Refactor into methods?
-    
+    <!--
+    //NOTES:
+    //I could write a parser so that Lin just has to name the images with just a date, or a date and a bg color to mimic Vincent Giards site.
+    //Need to write a "post" object that pulls in the image and constructs the format for the post using the image name or metadata.
+    //Need to add a check for end of image feed, could just count number of files in folder and end at that number.
+    //Refactor into methods?
+    -->
     <h1>HOWLIN <br>COMICS</h1>
     <h1 id="slogan">'93<br>TO<br>INFINITY</h1>
     
@@ -42,7 +42,7 @@
             var lastImg = "";
            
             $.ajax({
-                url: "images",
+                url: "\images",
                 success: function(data){
                     $(data).find("a:contains(.jpg), a:contains(.png)").each(function(){
                         // will loop through 
