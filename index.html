@@ -49,6 +49,7 @@
             font-size: 12px;
             margin: 0;
             color: white;
+            word-wrap: normal;
         }
 
         #chat li:last-of-type {
@@ -104,6 +105,11 @@
         newMessage.append(userName, text);
         chat.append(newMessage);
         console.log(user, message);
+        console.group("extra params");
+        console.log(flags);
+        console.log(self);
+        console.log(extras);
+        console.groupEnd()
     }
 
     ComfyJS.onError = ( err ) => {
