@@ -89,9 +89,11 @@
     ComfyJS.onChat = (user, message, flags, self, extra) => {
 
         var newMessage = document.createElement("li");
-        var userName = document.createElement("p").innerText(user);
-        var text = document.createElement("blockquote").innerText(message);
+        var userName = document.createElement("p");
+        var text = document.createElement("blockquote");
 
+        userName.append(user);
+        text.append(message);
 
         
         newMessage.append(userName, text);
