@@ -12,7 +12,7 @@
         html,
         body {
             margin: 0;
-            
+
         }
 
         #chat {
@@ -38,7 +38,7 @@
             display: flex;
         }
 
-        #chat p{
+        #chat p {
             font-size: 10px;
             margin: 0;
             padding-right: 2px;
@@ -59,10 +59,15 @@
         }
 
         @keyframes fadeout {
-            0%    { opacity: 1; }
-            100%  { opacity: 0; }
-          }
-          
+            0% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+
 
         @keyframes slide-in-left {
             from {
@@ -75,7 +80,6 @@
                 opacity: 1;
             }
         }
-
     </style>
 
 </head>
@@ -99,15 +103,17 @@
 
         userName.append(user);
         text.append(message);
-        console.log(extra.userBadges);
+
+        var modImg = document.createElement("IMG")
+        modImg.setAttribute('src','https://static-cdn.jtvnw…4b17-b3df-f923a41db1d0/1');
+        userName.prepend(modImg);
+
         userName.style.color = extra.userColor;
-        if(extra.userBadges.moderator === "1"){
+
+        if (extra.userBadges.moderator === "1") {
             console.log(extra.userBadges);
-            var modImg = document.createElement("IMG")
-            modImg.src = "https://static-cdn.jtvnw…4b17-b3df-f923a41db1d0/1";
-            userName.prepend(modImg);
         }
-        
+
         newMessage.append(userName, text);
         chat.append(newMessage);
         console.log(user, message);
@@ -118,7 +124,7 @@
         console.groupEnd()
     }
 
-    ComfyJS.onError = ( err ) => {
+    ComfyJS.onError = (err) => {
         console.log(err);
     }
 
