@@ -1,23 +1,107 @@
----
-layout: default
----
+<html lang="en">
 
-<div class="home">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitch chat</title>
 
-  <h1 class="page-heading">Posts</h1>
+    <script src="https://cdn.jsdelivr.net/npm/comfy.js@latest/dist/comfy.min.js"></script>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+    <style>
+        html,
+        body {
+            margin: 0;
+            font-family: monospace;
+            color: hsl(197, 62%, 32%);
+        }
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+        #chat {
+            width: 400px;
+            height: 350px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column-reverse;
+        }
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+        #chat::-webkit-scrollbar {
+            display: none;
+        }
 
-</div>
+        #chat ul {
+            list-style-type: none;
+            list-style-position: outside;
+        }
+
+        #chat li {
+            background-color: hsl(196, 58%, 93%);
+            box-sizing: border-box;
+            padding: 1rem 10px;
+            margin-bottom: 10px;
+            border: 4px solid;
+        }
+
+        #chat blockquote {
+            font-size: 1.2rem;
+        }
+
+        #chat li:last-of-type {
+            animation-name: slide-in-left;
+            animation-duration: 0.15s;
+            animation-timing-function: ease-in;
+        }
+
+        #chat li:not(:last-of-type) {
+            opacity: 0.5;
+        }
+
+        @keyframes slide-in-left {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="chat">
+        <ul>
+        </ul>
+    </div>
+</body>
+
+<script>
+
+    var chat = document.querySelector("#chat>ul");
+
+    ComfyJS.onChat = (user, message, flags, self, extra) => {
+
+        var newMessage = document.createElement("li");
+        var test = document.createElement("blockquote");
+
+
+        newMessage.innerText = user;
+        text.innerText = message;
+
+        newMessage.append(text);
+        chat.append(newMessage);
+        console.log(user, message);
+    }
+
+    ComfyJS.onError = ( err ) => {
+        console.log(error);
+    }
+
+    ComfyJS.Init("YourTwitchName");
+
+</script>
+
+</html>
