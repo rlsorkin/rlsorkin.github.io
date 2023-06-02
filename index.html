@@ -12,7 +12,7 @@
         html,
         body {
             margin: 0;
-            background-color: rgba(0, 0, 0, 0.1);
+            
         }
 
         #chat {
@@ -21,6 +21,7 @@
             overflow-y: auto;
             display: flex;
             flex-direction: column-reverse;
+            background-color: rgba(0, 0, 0, 0.1);
         }
 
         #chat::-webkit-scrollbar {
@@ -34,13 +35,15 @@
 
         #chat li {
             box-sizing: border-box;
-            animation-name: fadeout;
-            animation-duration: 2s;
-            animation-delay: 2s;
+            display: flex;
+        }
+
+        #chat p{
+            font-size: 8px;
         }
 
         #chat blockquote {
-            font-size: 12px;
+            font-size: 14px;
             margin: 2px;
         }
 
@@ -48,10 +51,6 @@
             animation-name: slide-in-left;
             animation-duration: 0.15s;
             animation-timing-function: ease-in;
-        }
-
-        #chat li:not(:last-of-type) {
-            opacity: 0.1;
         }
 
         @keyframes fadeout {
@@ -90,11 +89,12 @@
     ComfyJS.onChat = (user, message, flags, self, extra) => {
 
         var newMessage = document.createElement("li");
-        var text = document.createElement("blockquote");
+        var userName = document.createElement("p").innerText(user);
+        var text = document.createElement("blockquote").innerText(message);
 
 
-        newMessage.innerText = user;
-        text.innerText = message;
+        
+        newMessage.append(userName, text);
 
         newMessage.append(text);
         chat.append(newMessage);
