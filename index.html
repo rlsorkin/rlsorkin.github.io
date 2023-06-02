@@ -103,7 +103,8 @@
         userName.style.color = extra.userColor;
         if(extra.userBadges.moderator === "1"){
             console.log(extra.userBadges);
-            var modImg = "https://static-cdn.jtvnw…4b17-b3df-f923a41db1d0/1";
+            var modImg = document.createElement("IMG")
+            modImg.src = "https://static-cdn.jtvnw…4b17-b3df-f923a41db1d0/1";
             userName.prepend(modImg);
         }
         
